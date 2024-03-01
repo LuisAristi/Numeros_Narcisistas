@@ -11,6 +11,8 @@ long int elevar(long int x, long int e);
 
 int valor_exponente(int arreglo[], int N, int v);
 
+void llenar_arreglo(int x[], int N);
+
 int main(){
 	int N;
 	cout<<"ingresar tamaño del arreglo unidimensional: ";cin>> N;
@@ -54,3 +56,11 @@ int valor_exponente(int arreglo[], int N, int v)
 	}
 	return contador;
 }
+
+void llenar_arreglo(int x[], int N){
+	for(int i = 0; i < N; i++){
+		cout<<"ingrese el la posicion "<<i + 1<<endl;
+		cin>>x[i];
+		system("cls");
+	}
+} 
