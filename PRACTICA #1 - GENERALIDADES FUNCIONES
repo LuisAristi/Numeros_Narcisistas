@@ -47,9 +47,10 @@ long int elevar(long int x, long int e){
 int valor_exponente(int arreglo[], int N, int v)
 {
 	int contador=0;
-	while(arreglo[v]>0)
+	int i=arreglo[v]
+	while(i>0)
 	{
-		arreglo[v]/10;
+		i=i/10;
 		contador+=1;
 	}
 	return contador;
