@@ -9,7 +9,7 @@ void porcentaje_num(int x[], int N);
 
 long int elevar(long int x, long int e);
 
-
+int valor_exponente(int arreglo[], int N, int v);
 
 int main(){
 	int N;
@@ -43,3 +43,14 @@ long int elevar(long int x, long int e){
 	}
 	return x;
 } 
+
+int valor_exponente(int arreglo[], int N, int v)
+{
+	int contador=0;
+	while(arreglo[v]>0)
+	{
+		arreglo[v]%10;
+		contador+=1;
+	}
+	return contador;
+}
