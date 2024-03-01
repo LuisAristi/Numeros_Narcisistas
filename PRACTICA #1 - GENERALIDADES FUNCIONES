@@ -49,7 +49,7 @@ int valor_exponente(int arreglo[], int N, int v)
 	int contador=0;
 	while(arreglo[v]>0)
 	{
-		arreglo[v]%10;
+		arreglo[v]/10;
 		contador+=1;
 	}
 	return contador;
