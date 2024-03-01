@@ -3,7 +3,7 @@ using namespae std;
 
 void llenar_arreglo(int x[], int N);
 
-void calcular_promedio(int x[], int N);
+float calcular_promedio(int x[], int N);
 
 void porcentaje_num(int x[], int N);
 
@@ -14,4 +14,16 @@ int main(){
 	cout<<"ingresar tamaño del arreglo unidimensional: ";cin>> N;
 	int arreglo[N];
 	
+}
+
+float calcular_promedio(int arreglo[], int N)
+{
+	float promedioTotal=0;
+	
+	for(int i=0; i<N; i++)
+	{
+		promedioTotal+=arreglo[i];
+	}
+	promedioTotal=promedioTotal/N
+	return promedioTotal;
 }
