@@ -1,0 +1,17 @@
+#include<iostream>
+using namespae std;
+
+void llenar_arreglo(int x[], int N);
+
+void calcular_promedio(int x[], int N);
+
+void porcentaje_num(int x[], int N);
+
+
+
+int main(){
+	int N;
+	cout<<"ingresar tamaño del arreglo unidimensional: ";cin>> N;
+	int arreglo[N];
+	
+}
