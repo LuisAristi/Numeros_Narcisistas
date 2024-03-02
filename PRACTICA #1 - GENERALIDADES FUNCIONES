@@ -1,5 +1,5 @@
 #include<iostream>
-using namespae std;
+using namespace std;
 
 void llenar_arreglo(int x[], int N);
 
@@ -9,12 +9,39 @@ void porcentaje_num(int x[], int N);
 
 long int elevar(long int x, long int e);
 
-int valor_exponente(int arreglo[], int N, int v);
+bool narcisista(int num);
+
+int digitos(int x);
 
 int main(){
 	int N;
-	cout<<"ingresar tamaño del arreglo unidimensional: ";cin>> N;
+	cout<<"ingresar tamaño del arreglo unidimensional: ";cin>>N;
 	int arreglo[N];
+    llenar_arreglo(arreglo, N);
+    
+    int option;
+    do {
+        cout<<"\nMenu:\n";
+        cout<<"1. Calcular promedio\n";
+        cout<<"2. Porcentaje de numeros narcisista\n";
+        cout<<"3. Salir\n";
+        cout<<"Ingrese su opcion: ";
+        cin>>option;
+
+        switch(option) {
+            case 1:
+                cout<<"El promedio es: "<<calcular_promedio(arreglo, N)<<endl;
+                break;
+            case 2:
+                porcentaje_num(arreglo, N);
+                break;
+            case 3:
+                cout << "Saliendo...\n";
+                break;
+            default:
+                cout << "Opcion invalida. Por favor, intente de nuevo.\n";
+        }
+    } while(option != 3);
 	
 }
 
@@ -26,7 +53,7 @@ float calcular_promedio(int arreglo[], int N)
 	{
 		promedioTotal+=arreglo[i];
 	}
-	promedioTotal=promedioTotal/N
+	promedioTotal=promedioTotal/N;
 	return promedioTotal;
 }
 
@@ -44,12 +71,10 @@ long int elevar(long int x, long int e){
 	return x;
 } 
 
-int valor_exponente(int arreglo[], int N, int v)
-{
+int digitos(int x){
 	int contador=0;
-	int i=arreglo[v]
-	while(i>0)
-	{
+	int i=x;
+	while(i>0){
 		i=i/10;
 		contador+=1;
 	}
@@ -57,9 +82,37 @@ int valor_exponente(int arreglo[], int N, int v)
 }
 
 void llenar_arreglo(int x[], int N){
-	for(int i = 0; i < N; i++){
+	for(int i=0; i<N; i++){
 		cout<<"ingrese el la posicion "<<i + 1<<endl;
 		cin>>x[i];
 		system("cls");
 	}
 } 
+
+bool narcisista(int num){
+    int numero, digito, n = 0, result = 0, potencia;
+    numero = num;
+
+    while (numero != 0){
+        digito = numero%10;
+        potencia = elevar(digito, digitos(num));
+        result += potencia;
+        numero /= 10;
+    }
+
+    if(result == num)
+        return true;
+    else
+        return false;
+}
+
+void porcentaje_num(int x[], int N){
+    int count = 0;
+    for(int i=0; i<N; i++){
+        if(narcisista(x[i])){
+            count++;
+        }
+    }
+    float porcentaje = (float)count/N * 100;
+    cout<<"Porcentaje de numeros narcisistas: "<<porcentaje<<"%"<<endl;
+}
